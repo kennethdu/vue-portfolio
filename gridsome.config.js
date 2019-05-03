@@ -6,5 +6,7 @@
 
 module.exports = {
   siteName: "Kenneth's Portfolio",
-  plugins: []
+  plugins: [
+  // { src: "~/plugins/aos", ssr: false } 
+]
 }

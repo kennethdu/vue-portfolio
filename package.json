@@ -7,6 +7,8 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "axios": "^0.18.0",
     "gridsome": "^0.5.0"
   }
 }
