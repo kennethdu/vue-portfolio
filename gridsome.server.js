@@ -9,11 +9,7 @@ const axios = require('axios')
 
 module.exports = function (api) {
   api.loadSource(async store => {
-    const {
-      data
-    } = await axios.get('https://my-json-server.typicode.com/kennethdu/test-json-server/projects')
-
-    console.log(data);
+    const { data } = await axios.get('https://my-json-server.typicode.com/kennethdu/test-json-server/projects')
 
     const contentType = store.addContentType({ typeName: 'projects', route: '/projects/:id' })
 
@@ -25,10 +21,58 @@ module.exports = function (api) {
         fields: {
           description: item.description,
           tech: item.tech,
-          github: item.github
-          // links: item.links
+          github: item.github,
+          imgURL: item.imgURL
         }
       })
     }
   })
+  api.loadSource(async store => {
+    const { data } = await axios.get('https://my-json-server.typicode.com/kennethdu/test-json-server/tech')
+        
+    const contentType = store.addContentType({ typeName: 'tech' })
+    
+    for (const item of data) {
+      contentType.addNode({
+        id: item.id,
+        title: item.title,
+        fields: {
+          type: item.type
+        }
+      })
+    }
+  })
+  api.loadSource(async store => {
+    const { data } = await axios.get('https://my-json-server.typicode.com/kennethdu/test-json-server/hobbies')
+
+    const contentType = store.addContentType({ typeName: 'hobbies' })
+
+    for (const item of data) {
+      contentType.addNode({
+        id: item.id,
+        title: item.title,
+        fields: {
+          description: item.description
+        }
+      })
+    }
+  })
+  // api.loadSource(async store => {
+  //   const { data } = await axios.get('https://my-json-server.typicode.com/kennethdu/test-json-server/homeContent')
+  
+  //   const contentType = store.addContentType({ typeName: 'content' })
+  
+  //   console.log("Home Content:" + data);
+  
+  //   for (const item of data) {
+  //     contentType.addNode({
+  //       id: item.id,
+  //       title: item.title,
+  //       fields: {
+  //         description: item.description
+  //       }
+  //     })
+  //   }
+  // })
 }
+
