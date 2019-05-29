@@ -8,6 +8,19 @@
 const axios = require('axios')
 
 module.exports = function (api) {
+
+  //  api.chainWebpack((config, {
+  //    isServer
+  //  }) => {
+  //    if (isServer) {
+  //      config.externals([
+  //        nodeExternals({
+  //          whitelist: [/^vuetify/],
+  //        }),
+  //      ])
+  //    }
+  //  }),
+
   api.loadSource(async store => {
     const { data } = await axios.get('https://my-json-server.typicode.com/kennethdu/test-json-server/projects')
 
