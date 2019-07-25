@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav class="navbar is-white">
+    <nav class="navbar is-white is-fixed-top">
       <div class="navbar-brand">
         <strong>
           <g-link class="button" to="/">{{ $static.metaData.siteName }}</g-link>
